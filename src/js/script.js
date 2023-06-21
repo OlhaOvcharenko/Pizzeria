@@ -68,9 +68,11 @@ const select = {
 
       /* generate HTML based on template */
       const generatedHTML = templates.menuProduct(thisProduct.data);
+  
 
       /* Create element using utils.createDOMFromHTML */
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
+      console.log(thisProduct.element);
 
       /* Find menu container */
      const menuContainer = document.querySelector(select.containerOf.menu);
@@ -78,7 +80,7 @@ const select = {
       /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
     };
-    
+
   };
 
   
