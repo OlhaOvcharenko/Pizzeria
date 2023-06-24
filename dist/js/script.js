@@ -100,6 +100,7 @@ const select = {
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
@@ -174,14 +175,13 @@ const select = {
 
           //creat const to get the selected option from paramID
           const selectedOption = formData[paramId] && formData[paramId]. includes(optionId);
-          console.log(selectedOption)
+          console.log(selectedOption);
 
           if(selectedOption) {
             // Check if the selected option is not the default option
             if (!option.default) {
-               // Increase the price by the cost of the selected option
-               price += option.price;
-              }
+              // Increase the price by the cost of the selected option
+              price += option.price;
             } else {
               // Check if the option is the default option
               if (option.default) {
@@ -190,13 +190,27 @@ const select = {
               }
             }
           }
+
+          // create a const to find image which = a specific category-option
+          const productImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+
+          if(productImage) {
+
+            if(selectedOption){
+              //add class active to image 
+              productImage.classList.add(classNames.menuProduct.imageVisible);
+            }else{
+              productImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
         }
-  
+      }
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
   }
- 
+  
+
   const app = {
     initMenu: function() {
       const thisApp = this;
