@@ -209,7 +209,8 @@ const select = {
           }
         }
       }
-    
+
+  
       /*multiplie price by amount*/
       price *= thisProduct.amountWidget.value;
 
@@ -248,7 +249,7 @@ const select = {
 
     getElements(element){
       const thisWidget = this;
-    
+      
       thisWidget.element = element;
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
@@ -298,7 +299,7 @@ const select = {
     announce(){
       const thisWidget = this;
 
-      const event = new Event('update');
+      const event = new Event('updated');
       thisWidget.element.dispatchEvent(event);
 
     }
