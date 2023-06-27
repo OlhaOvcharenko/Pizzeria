@@ -60,18 +60,21 @@ const select = {
       thisProduct.data =data;
 
       thisProduct.renderInMenu();
-      console.log('New Product:', thisProduct);
+      //console.log('New Product:', thisProduct);
 
       thisProduct.getElements();
 
       thisProduct.initAccordion();
-      console.log('Ative Product:', thisProduct);
+      //console.log('Ative Product:', thisProduct);
 
       thisProduct.initOrderForm();
-      console.log('Order Form:', thisProduct);
+      //console.log('Order Form:', thisProduct);
+
+      thisProduct.initAmountWiget();
+      console.log(thisProduct);
 
       thisProduct.processOrder();
-      console.log('Process of Order:', thisProduct);
+      //console.log('Process of Order:', thisProduct);
 
     }
     renderInMenu(){
@@ -83,7 +86,7 @@ const select = {
 
       /* Create element using utils.createDOMFromHTML */
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
-      console.log(thisProduct.element);
+      //console.log(thisProduct.element);
 
       /* Find menu container */
       const menuContainer = document.querySelector(select.containerOf.menu);
@@ -101,11 +104,12 @@ const select = {
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWigetElement = thisProduct.element.querySelector(select.menuProduct.amountWidget);
     }
 
     initAccordion() {
       const thisProduct = this;
-      console.log(thisProduct);
+      //console.log(thisProduct);
     
       /* Find the clickable trigger (the element that should react to clicking) */
       //const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
@@ -132,7 +136,7 @@ const select = {
 
     initOrderForm(){
       const thisProduct = this;
-      console.log(thisProduct)
+      //console.log(thisProduct)
 
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -153,10 +157,10 @@ const select = {
 
     processOrder(){
       const thisProduct = this;
-      console.log(thisProduct);
+      //console.log(thisProduct);
 
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
+      //console.log('formData', formData);
 
       /*set price to default price*/
       let price = thisProduct.data.price;
@@ -165,17 +169,17 @@ const select = {
       for(let paramId in thisProduct.data.params) {
         // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
-        console.log(paramId, param);
+        //console.log(paramId, param);
 
         // for every option in this category
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(optionId, option);
+          //console.log(optionId, option);
 
           //creat const to get the selected option from paramID
           const selectedOption = formData[paramId] && formData[paramId]. includes(optionId);
-          console.log(selectedOption);
+          //console.log(selectedOption);
 
           if(selectedOption) {
             // Check if the selected option is not the default option
@@ -189,6 +193,8 @@ const select = {
                 price -= option.price;
               }
             }
+
+
           }
 
           // create a const to find image which = a specific category-option
@@ -208,8 +214,70 @@ const select = {
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
+
+    initAmountWiget(){
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWigetElement);
+    }
   }
   
+  class AmountWidget {
+    constructor(element){
+      const thisWidget = this;
+
+      console.log('AmountWidget:',thisWidget);
+      console.log('constructor arguments:',element);
+
+      thisWidget.getElements(element);
+
+      thisWidget.setValue(thisWidget.input.value);
+
+      thisWidget.initActions();
+
+    }
+
+    getElements(element){
+      const thisWidget = this;
+    
+      thisWidget.element = element;
+      thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
+      thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
+      thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+    }
+
+    setValue(value){
+      const thisWidget = this;
+
+      const newValue =  parseInt(value);
+
+      /*TODO:add validation*/
+      if(thisWidget.value !== newValue && !isNaN(newValue)) {
+        thisWidget.value = newValue;
+      }
+
+      thisWidget.input.value =thisWidget.value;
+    }
+
+    initActions(){
+      const thisWidget = this;
+
+      thisWidget.input.addEventListener('change', function() {
+        thisWidget.setValue(thisWidget.input.value);
+      });
+
+      thisWidget.linkDecrease.addEventListener('click', function(event) {
+        event.preventDefault(); // Powstrzymuje domyślną akcję dla eventu "click"
+        thisWidget.setValue(thisWidget.value - 1);
+      });
+
+      thisWidget.linkIncrease.addEventListener('click', function(event) {
+        event.preventDefault(); // Powstrzymuje domyślną akcję dla eventu "click"
+        thisWidget.setValue(thisWidget.value + 1);
+      });
+    }
+
+  }
 
   const app = {
     initMenu: function() {
