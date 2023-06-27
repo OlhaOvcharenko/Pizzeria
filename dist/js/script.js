@@ -70,7 +70,7 @@ const select = {
       thisProduct.initOrderForm();
       //console.log('Order Form:', thisProduct);
 
-      thisProduct.initAmountWiget();
+      thisProduct.initAmountWidget();
       console.log(thisProduct);
 
       thisProduct.processOrder();
@@ -104,7 +104,7 @@ const select = {
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
-      thisProduct.amountWigetElement = thisProduct.element.querySelector(select.menuProduct.amountWidget);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
     }
 
     initAccordion() {
@@ -193,8 +193,6 @@ const select = {
                 price -= option.price;
               }
             }
-
-
           }
 
           // create a const to find image which = a specific category-option
@@ -211,14 +209,23 @@ const select = {
           }
         }
       }
+    
+      /*multiplie price by amount*/
+      price *= thisProduct.amountWidget.value;
+
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
+
     }
 
-    initAmountWiget(){
+    initAmountWidget(){
       const thisProduct = this;
 
-      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWigetElement);
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+
+      thisProduct.amountWidgetElem.addEventListener('updated', function(){
+        thisProduct.processOrder();
+      });
     }
   }
   
@@ -228,6 +235,8 @@ const select = {
 
       console.log('AmountWidget:',thisWidget);
       console.log('constructor arguments:',element);
+
+      thisWidget.value = settings.amountWidget.defaultValue;
 
       thisWidget.getElements(element);
 
@@ -250,13 +259,22 @@ const select = {
       const thisWidget = this;
 
       const newValue =  parseInt(value);
+      const minValue = settings.amountWidget.defaultMin;
+      const maxValue = settings.amountWidget.defaultMax;
 
       /*TODO:add validation*/
       if(thisWidget.value !== newValue && !isNaN(newValue)) {
         thisWidget.value = newValue;
       }
+      if(thisWidget.value < minValue) {
+        thisWidget.value = minValue;
+      }
+      if(thisWidget.value > maxValue) {
+        thisWidget.value = maxValue + 1;
+      }
 
       thisWidget.input.value =thisWidget.value;
+      thisWidget.announce();
     }
 
     initActions(){
@@ -277,6 +295,13 @@ const select = {
       });
     }
 
+    announce(){
+      const thisWidget = this;
+
+      const event = new Event('update');
+      thisWidget.element.dispatchEvent(event);
+
+    }
   }
 
   const app = {
