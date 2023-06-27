@@ -273,7 +273,7 @@ const select = {
         thisWidget.value = maxValue + 1;
       }
 
-      thisWidget.input.value =thisWidget.value;
+      thisWidget.input.value = thisWidget.value;
       thisWidget.announce();
     }
 
