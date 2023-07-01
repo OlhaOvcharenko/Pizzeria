@@ -414,7 +414,7 @@
 
       thisApp.initData();
       thisApp.initMenu();
-      //thisApp.initCart();
+      thisApp.initCart();
     },
 
     initCart: function() {
