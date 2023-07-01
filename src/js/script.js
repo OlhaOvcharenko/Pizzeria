@@ -189,6 +189,7 @@
       thisProduct.dom.cartButton.addEventListener('click', function(event){
         event.preventDefault();
         thisProduct.processOrder();
+        thisProduct.addToCart();
       });
     }
 
@@ -251,6 +252,8 @@
       /*multiplie price by amount*/
       price *= thisProduct.amountWidget.value;
 
+      thisProduct.priceSingle = price;
+
       thisProduct.dom.priceElem.innerHTML = price;
 
     }
@@ -263,6 +266,63 @@
       thisProduct.dom.amountWidgetElem.addEventListener('updated', function(){
         thisProduct.processOrder();
       });
+    }
+
+    addToCart() {
+      const thisProduct =this;
+
+      const productSummary = thisProduct.prepareCartProduct();
+
+      app.cart.add(productSummary);
+    }
+
+    prepareCartProduct(){
+      const thisProduct = this;
+
+      const productSummary = {};
+      productSummary.id = thisProduct.id;
+      productSummary.name = thisProduct.name;
+      productSummary.amount = thisProduct.amountWidget.value;
+      productSummary.priceSingle = thisProduct.priceSingle;
+      productSummary.price = productSummary.priceSingle * thisProduct.amountWidget.value;
+      productSummary.params = {};
+      return productSummary;
+    }
+
+    prepareCartProductParams(){
+      const thisProduct = this;
+    
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      
+
+      const params = {};
+
+      // for every category (param)...
+      for(let paramId in thisProduct.data.params) {
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        const param = thisProduct.data.params[paramId];
+
+        // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
+        params[paramId] = {
+        label: param.label,
+        options: {}
+        }
+        // for every option in this category
+        for(let optionId in param.options) {
+
+          const option = param.options[optionId];
+          //creat const to get the selected option from paramID
+          const selectedOption = formData[paramId] && formData[paramId]. includes(optionId);
+
+          if(selectedOption) {
+
+            params[paramId].options[optionId] = option.name;
+            params[paramId].options[optionId] = option.label;
+
+          }
+        }
+      }
+      return params;
     }
   }
   
@@ -350,8 +410,6 @@
       thisCart.getElements(element);
 
       thisCart.initActions();
-
-      console.log('new Cart', thisCart);
     }
 
     getElements(element){
@@ -371,6 +429,12 @@
         event.preventDefault();
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       })
+    }
+
+    add(menuProduct) {
+      //const thisCart =this;
+
+      console.log('adding Product', menuProduct)
     }
   }
 
