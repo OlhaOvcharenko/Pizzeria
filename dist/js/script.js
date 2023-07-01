@@ -85,7 +85,7 @@
     cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
     // CODE ADDED END
   };
-  
+
   class Product {
     constructor(id, data) {
       const thisProduct = this;
@@ -343,7 +343,52 @@
     }
   }
 
-  
+  class Cart {
+    constructor(element){
+      const thisCart = this;
+
+      thisCart.product = [];
+
+      thisCart.getElements(element);
+
+      thisCart.initActions();
+    }
+
+    getElements(element){
+      const thisCart = this;
+
+      thisCart.dom = {};
+
+      thisCart.dom.wrapper = element;
+      thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.productList = element.querySelector(select.cart.productList);
+    }
+
+    initActions(){
+      const thisCart = this;
+
+      thisCart.dom.toggleTrigger.addEventListener('click', function(event){
+        event.preventDefault();
+        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      })
+    }
+
+    add(menuProduct) {
+      //const thisCart = this;
+
+      console.log('adding Product', menuProduct)
+
+      /* generate HTML based on template */
+      const generatedHTML = templates.cartProduct(menuProduct);
+
+      /* Create element using utils.createDOMFromHTML */
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+
+       //add element to productList 
+      thisCart.dom.productList.appendChild(generatedDOM);
+    }
+  }
+
 
   const app = {
     initMenu: function() {
@@ -371,15 +416,15 @@
 
       thisApp.initData();
       thisApp.initMenu();
-      //thisApp.initCart();
-    }
+      thisApp.initCart();
+    },
 
-    /*initCart: function() {
+    initCart: function() {
       const thisApp = this;
 
       const cartElem = document.querySelector(select.containerOf.cart);
       thisApp.cart = new Cart(cartElem);
-    }*/
+    }
 
   };
   
