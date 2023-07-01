@@ -91,7 +91,8 @@
       const thisProduct = this;
       
       thisProduct.id = id;
-      thisProduct.data =data;
+      thisProduct.data = data;
+      thisProduct.name = data.name;
 
       thisProduct.renderInMenu();
       //console.log('New Product:', thisProduct);
@@ -109,8 +110,8 @@
 
       thisProduct.processOrder();
       //console.log('Process of Order:', thisProduct);
-
     }
+
     renderInMenu(){
       const thisProduct = this;
 
@@ -197,7 +198,7 @@
       const thisProduct = this;
       //console.log(thisProduct);
 
-      const formData = utils.serializeFormToObject(thisProduct.form);
+      const formData = utils.serializeFormToObject(thisProduct.dom.form);
       //console.log('formData', formData);
 
       /*set price to default price*/
@@ -389,10 +390,11 @@
 
 
   const app = {
-    initMenu: function() {
+
+    initMenu: function () {
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
-      for (let productData in thisApp.data.products){
+      // console.log('thisApp.data:', thisApp.data);
+      for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
       }
     },
