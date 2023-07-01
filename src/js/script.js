@@ -195,78 +195,72 @@
 
     processOrder(){
       const thisProduct = this;
-      //console.log(thisProduct);
 
+      // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      //console.log('formData', formData);
+      console.log('formData', formData);
 
-      /*set price to default price*/
+      // set price to default price
       let price = thisProduct.data.price;
 
       // for every category (param)...
       for(let paramId in thisProduct.data.params) {
         // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
-        //console.log(paramId, param);
+        console.log(paramId, param);
 
         // for every option in this category
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          //console.log(optionId, option);
+          console.log(optionId, option);
+        
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
-          //creat const to get the selected option from paramID
-          const selectedOption = formData[paramId] && formData[paramId]. includes(optionId);
-          //console.log(selectedOption);
-
-          if(selectedOption) {
-            // Check if the selected option is not the default option
-            if (!option.default) {
-              // Increase the price by the cost of the selected option
+          // check if there is param with a name of paramId in formData and if it includes optionId
+          if(optionSelected) {
+            // check if the option is not default
+            console.log(option.default);
+            if(option.default != true) {
+              // add option price to price variable
               price += option.price;
-            } else {
-              // Check if the option is the default option
-              if (option.default) {
-                // Decrease the price by the cost of the default option
-                price -= option.price;
-              }
             }
+          // check if the option is default
+          } else if (option.default == true) {
+          // reduce price variable
+            price -= option.price;
           }
-
-          // create a const to find image which = a specific category-option
-          const productImage = thisProduct.dom.imageWrapper.querySelector('.' + paramId + '-' + optionId);
-
-          if(productImage) {
-
-            if(selectedOption){
-              //add class active to image 
-              productImage.classList.add(classNames.menuProduct.imageVisible);
-            }else{
-              productImage.classList.remove(classNames.menuProduct.imageVisible);
+        
+          const optionImage = thisProduct.dom.imageWrapper.querySelector ('.' + paramId + '-' + optionId);
+          
+          if(optionImage) {
+            if(optionSelected) {
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+            } else {
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
         }
       }
-      /*multiplie price by amount*/
-      price *= thisProduct.amountWidget.value;
-
+      // priceSingle
       thisProduct.priceSingle = price;
 
+      // multiply price by amount
+      price *= thisProduct.amountWidget.value;
+
+      // update calculated price in the HTML
       thisProduct.dom.priceElem.innerHTML = price;
-
     }
-
+    
     initAmountWidget(){
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.dom.amountWidgetElem);
-
       thisProduct.dom.amountWidgetElem.addEventListener('updated', function(){
-        thisProduct.processOrder();
+      thisProduct.processOrder();
       });
     }
   }
-
 
   class AmountWidget {
     constructor(element){
