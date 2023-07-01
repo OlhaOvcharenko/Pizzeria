@@ -266,6 +266,55 @@
         thisProduct.processOrder();
       });
     }
+
+    addToCart() {
+      const thisProduct =this;
+
+      const productSummary = thisProduct.prepareCartProduct();
+
+      app.cart.add(productSummary);
+    }
+
+    prepareCartProduct(){
+      const thisProduct = this;
+
+      const productSummary = {};
+      productSummary.id = thisProduct.id;
+      productSummary.name = thisProduct.name;
+      productSummary.amount = thisProduct.amountWidget.value;
+      productSummary.priceSingle = thisProduct.priceSingle;
+      productSummary.price = productSummary.priceSingle * thisProduct.amountWidget.value;
+      productSummary.params = thisProduct.prepareCartProductParams();
+      return productSummary;
+    }
+
+    prepareCartProductParams() {
+      const thisProduct = this;
+      const formData = utils.serializeFormToObject(thisProduct.dom.form);
+      const params = {};
+    
+      // for every category (param)...
+      for (let paramId in thisProduct.data.params) {
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        const param = thisProduct.data.params[paramId];
+    
+        // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
+        params[paramId] = {
+          label: param.label,
+          options: {}
+        };
+        // for every option in this category
+        for (let optionId in param.options) {
+          const option = param.options[optionId];
+          const selectedOption = formData[paramId] && formData[paramId].includes(optionId);
+    
+          if (selectedOption) {
+            params[paramId].options[optionId] = option.label;
+          }
+        }
+      }
+      return params;
+    }      
   }
 
 
