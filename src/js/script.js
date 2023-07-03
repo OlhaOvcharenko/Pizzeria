@@ -482,15 +482,18 @@
     
       thisCart.totalNumber = totalNumber;
       thisCart.subtotalPrice = subtotalPrice;
-      thisCart.totalPrice = deliveryFee + subtotalPrice;
-    
+      
       if (totalNumber === 0) {
-        thisCart.totalPrice = 0;
+        thisCart.deliveryFee = 0;
+      } else {
+        thisCart.deliveryFee = deliveryFee;
       }
+
+      thisCart.totalPrice = thisCart.deliveryFee + thisCart.subtotalPrice;
     
       thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
       thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
-      thisCart.dom.deliveryFee.innerHTML = deliveryFee;
+      thisCart.dom.deliveryFee.innerHTML = thisCart.deliveryFee;
 
       for (let item of thisCart.dom.totalPrice) {
         item.innerHTML = thisCart.totalPrice;
