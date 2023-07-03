@@ -223,16 +223,16 @@
           if(selectedOption) {
             // Check if the selected option is not the default option
             if (!option.default) {
-              // Increase the price by the cost of the selected option
+              // add option price to price variable
               price += option.price;
+            }
             } else {
-              // Check if the option is the default option
+              // check if the option is default
               if (option.default) {
-                // Decrease the price by the cost of the default option
-                price -= option.price;
+              // reduce price 
+              price -= option.price;
               }
             }
-          }
 
           // create a const to find image which = a specific category-option
           const productImage = thisProduct.dom.imageWrapper.querySelector('.' + paramId + '-' + optionId);
