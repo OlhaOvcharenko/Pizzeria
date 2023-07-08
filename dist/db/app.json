@@ -205,147 +205,30 @@
   "orders": [
     {
       "address": "",
-      "phone": "",
-      "totalPrice": 59,
-      "subtotalPrice": "39",
-      "totalNumber": "3",
-      "deliveryFee": "20",
-      "products": [
-        {
-          "id": "cake",
-          "name": "Zio Stefano's Doughnut",
-          "amount": 1,
-          "price": 9,
-          "priceSingle": 9,
-          "params": {}
-        },
-        {
-          "id": "pizza",
-          "name": "Nonna Alba's Pizza",
-          "amount": 1,
-          "price": 19,
-          "priceSingle": 19,
-          "params": {
-            "sauce": {
-              "label": "Sauce",
-              "options": {
-                "tomato": "Tomato"
-              }
-            },
-            "toppings": {
-              "label": "Toppings",
-              "options": {
-                "redPeppers": "Red peppers",
-                "greenPeppers": "Green peppers",
-                "basil": "Fresh basil",
-                "salami": "Salami"
-              }
-            },
-            "crust": {
-              "label": "pizza crust",
-              "options": {
-                "standard": "standard"
-              }
-            }
-          }
-        },
-        {
-          "id": "salad",
-          "name": "Nonno Alberto's Salad",
-          "amount": 1,
-          "price": 11,
-          "priceSingle": 11,
-          "params": {
-            "ingredients": {
-              "label": "Ingredients",
-              "options": {
-                "cucumber": "Cucumber",
-                "tomatoes": "Tomatoes",
-                "olives": "Olives",
-                "feta": "Feta cheese",
-                "cheese": "Cheese",
-                "herbs": "Fresh herbs"
-              }
-            }
-          }
-        }
-      ],
+      "phone": "+48 69 097 70 73",
+      "totalPrice": 0,
+      "subtotalPrice": "0",
+      "totalNumber": "0",
+      "deliveryFee": "0",
+      "products": [],
       "id": 1
     },
     {
       "address": "",
-      "phone": "",
-      "totalPrice": 58,
-      "subtotalPrice": "38",
-      "totalNumber": "3",
-      "deliveryFee": "20",
-      "products": [
-        {
-          "id": "cake",
-          "name": "Zio Stefano's Doughnut",
-          "amount": 1,
-          "price": 9,
-          "priceSingle": 9,
-          "params": {}
-        },
-        {
-          "id": "pizza",
-          "name": "Nonna Alba's Pizza",
-          "amount": 1,
-          "price": 20,
-          "priceSingle": 20,
-          "params": {
-            "sauce": {
-              "label": "Sauce",
-              "options": {
-                "tomato": "Tomato"
-              }
-            },
-            "toppings": {
-              "label": "Toppings",
-              "options": {
-                "olives": "Olives",
-                "redPeppers": "Red peppers",
-                "greenPeppers": "Green peppers",
-                "mushrooms": "Mushrooms",
-                "basil": "Fresh basil"
-              }
-            },
-            "crust": {
-              "label": "pizza crust",
-              "options": {
-                "standard": "standard"
-              }
-            }
-          }
-        },
-        {
-          "id": "salad",
-          "name": "Nonno Alberto's Salad",
-          "amount": 1,
-          "price": 9,
-          "priceSingle": 9,
-          "params": {
-            "ingredients": {
-              "label": "Ingredients",
-              "options": {
-                "cucumber": "Cucumber",
-                "tomatoes": "Tomatoes",
-                "olives": "Olives",
-                "herbs": "Fresh herbs"
-              }
-            }
-          }
-        }
-      ],
+      "phone": "+48 69 097 70 73",
+      "totalPrice": 0,
+      "subtotalPrice": "0",
+      "totalNumber": "0",
+      "deliveryFee": "0",
+      "products": [],
       "id": 2
     },
     {
       "address": "",
-      "phone": "",
-      "totalPrice": 58,
-      "subtotalPrice": "38",
-      "totalNumber": "3",
+      "phone": "+48 69 097 70 73",
+      "totalPrice": 29,
+      "subtotalPrice": "9",
+      "totalNumber": "1",
       "deliveryFee": "20",
       "products": [
         {
@@ -355,58 +238,47 @@
           "price": 9,
           "priceSingle": 9,
           "params": {}
-        },
-        {
-          "id": "pizza",
-          "name": "Nonna Alba's Pizza",
-          "amount": 1,
-          "price": 20,
-          "priceSingle": 20,
-          "params": {
-            "sauce": {
-              "label": "Sauce",
-              "options": {
-                "tomato": "Tomato"
-              }
-            },
-            "toppings": {
-              "label": "Toppings",
-              "options": {
-                "olives": "Olives",
-                "redPeppers": "Red peppers",
-                "greenPeppers": "Green peppers",
-                "mushrooms": "Mushrooms",
-                "basil": "Fresh basil"
-              }
-            },
-            "crust": {
-              "label": "pizza crust",
-              "options": {
-                "standard": "standard"
-              }
-            }
-          }
-        },
-        {
-          "id": "salad",
-          "name": "Nonno Alberto's Salad",
-          "amount": 1,
-          "price": 9,
-          "priceSingle": 9,
-          "params": {
-            "ingredients": {
-              "label": "Ingredients",
-              "options": {
-                "cucumber": "Cucumber",
-                "tomatoes": "Tomatoes",
-                "olives": "Olives",
-                "herbs": "Fresh herbs"
-              }
-            }
-          }
         }
       ],
       "id": 3
+    },
+    {
+      "address": "",
+      "phone": "+48 69 097 70 73",
+      "totalPrice": 29,
+      "subtotalPrice": "9",
+      "totalNumber": "1",
+      "deliveryFee": "20",
+      "products": [
+        {
+          "id": "cake",
+          "name": "Zio Stefano's Doughnut",
+          "amount": 1,
+          "price": 9,
+          "priceSingle": 9,
+          "params": {}
+        }
+      ],
+      "id": 4
+    },
+    {
+      "address": "",
+      "phone": "+48 69 097 70 73",
+      "totalPrice": 29,
+      "subtotalPrice": "9",
+      "totalNumber": "1",
+      "deliveryFee": "20",
+      "products": [
+        {
+          "id": "cake",
+          "name": "Zio Stefano's Doughnut",
+          "amount": 1,
+          "price": 9,
+          "priceSingle": 9,
+          "params": {}
+        }
+      ],
+      "id": 5
     }
   ]
 }
