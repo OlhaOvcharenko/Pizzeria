@@ -1,5 +1,5 @@
 
-  import {settings, select} from './settings.js';
+  import {settings, select,} from './settings.js';
   import Product from './components/Product.js';
   import Cart from './components/Cart.js';
 
@@ -23,7 +23,7 @@
       thisApp.productList = document.querySelector(select.containerOf.menu);
 
       thisApp.productList.addEventListener('add-to-cart', function(event){
-        app.cart.add(event.details.product)
+        app.cart.add(event.detail.product)
       });
     },
 
@@ -58,15 +58,14 @@
       //console.log('settings:', settings);
       //console.log('templates:', templates);
       
-
       thisApp.initData();
-      //thisApp.initMenu();
+      thisApp.initMenu();
       thisApp.initCart();
     },
 
 
 
-  }
+  };
   
   app.init();
 

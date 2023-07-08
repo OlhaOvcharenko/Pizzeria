@@ -185,22 +185,6 @@ class Product {
       });
     }
 
-    addToCart() {
-      const thisProduct =this;
-
-      const productSummary = thisProduct.prepareCartProduct();
-
-      //app.cart.add(productSummary);
-
-      const event = new CustomEvent('add-to-cart', {
-        bubbles: true,
-        details: {
-          product: productSummary,
-        },
-      });
-      thisProduct.element.dispatchEvent(event);
-    }
-
     prepareCartProduct(){
       const thisProduct = this;
 
@@ -240,7 +224,23 @@ class Product {
         }
       }
       return params;
-    }      
+    }     
+
+    addToCart() {
+      const thisProduct =this;
+
+      //const productSummary = thisProduct.prepareCartProduct();
+
+      //app.cart.add(productSummary);
+
+      const event = new CustomEvent('add-to-cart', {
+        bubbles: true,
+        detail: {
+          product: thisProduct.prepareCartProduct(),
+        },
+      });
+      thisProduct.element.dispatchEvent(event);
+    } 
   }
 
 export default Product;
