@@ -206,162 +206,21 @@
     {
       "address": "",
       "phone": "",
-      "totalPrice": 85,
-      "subtotalPrice": "65",
-      "totalNumber": "6",
+      "totalPrice": 29,
+      "subtotalPrice": "9",
+      "totalNumber": "1",
       "deliveryFee": "20",
       "products": [
         {
           "id": "cake",
           "name": "Zio Stefano's Doughnut",
-          "amount": 2,
-          "price": 18,
-          "priceSingle": 9,
-          "params": {}
-        },
-        {
-          "id": "breakfast",
-          "name": "Zia Giulia's Breakfast",
           "amount": 1,
           "price": 9,
           "priceSingle": 9,
-          "params": {
-            "coffee": {
-              "label": "Coffee type",
-              "options": {
-                "latte": "Latte"
-              }
-            }
-          }
-        },
-        {
-          "id": "breakfast",
-          "name": "Zia Giulia's Breakfast",
-          "amount": 2,
-          "price": 18,
-          "priceSingle": 9,
-          "params": {
-            "coffee": {
-              "label": "Coffee type",
-              "options": {
-                "latte": "Latte"
-              }
-            }
-          }
-        },
-        {
-          "id": "pizza",
-          "name": "Nonna Alba's Pizza",
-          "amount": 1,
-          "price": 20,
-          "priceSingle": 20,
-          "params": {
-            "sauce": {
-              "label": "Sauce",
-              "options": {
-                "tomato": "Tomato"
-              }
-            },
-            "toppings": {
-              "label": "Toppings",
-              "options": {
-                "olives": "Olives",
-                "redPeppers": "Red peppers",
-                "greenPeppers": "Green peppers",
-                "mushrooms": "Mushrooms",
-                "basil": "Fresh basil"
-              }
-            },
-            "crust": {
-              "label": "pizza crust",
-              "options": {
-                "standard": "standard"
-              }
-            }
-          }
+          "params": {}
         }
       ],
       "id": 1
-    },
-    {
-      "address": "",
-      "phone": "",
-      "totalPrice": 85,
-      "subtotalPrice": "65",
-      "totalNumber": "6",
-      "deliveryFee": "20",
-      "products": [
-        {
-          "id": "cake",
-          "name": "Zio Stefano's Doughnut",
-          "amount": 2,
-          "price": 18,
-          "priceSingle": 9,
-          "params": {}
-        },
-        {
-          "id": "breakfast",
-          "name": "Zia Giulia's Breakfast",
-          "amount": 1,
-          "price": 9,
-          "priceSingle": 9,
-          "params": {
-            "coffee": {
-              "label": "Coffee type",
-              "options": {
-                "latte": "Latte"
-              }
-            }
-          }
-        },
-        {
-          "id": "breakfast",
-          "name": "Zia Giulia's Breakfast",
-          "amount": 2,
-          "price": 18,
-          "priceSingle": 9,
-          "params": {
-            "coffee": {
-              "label": "Coffee type",
-              "options": {
-                "latte": "Latte"
-              }
-            }
-          }
-        },
-        {
-          "id": "pizza",
-          "name": "Nonna Alba's Pizza",
-          "amount": 1,
-          "price": 20,
-          "priceSingle": 20,
-          "params": {
-            "sauce": {
-              "label": "Sauce",
-              "options": {
-                "tomato": "Tomato"
-              }
-            },
-            "toppings": {
-              "label": "Toppings",
-              "options": {
-                "olives": "Olives",
-                "redPeppers": "Red peppers",
-                "greenPeppers": "Green peppers",
-                "mushrooms": "Mushrooms",
-                "basil": "Fresh basil"
-              }
-            },
-            "crust": {
-              "label": "pizza crust",
-              "options": {
-                "standard": "standard"
-              }
-            }
-          }
-        }
-      ],
-      "id": 2
     }
   ]
 }
