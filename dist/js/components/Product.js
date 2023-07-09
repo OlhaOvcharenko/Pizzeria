@@ -35,7 +35,6 @@ class Product {
     /* generate HTML based on template */
     const generatedHTML = templates.menuProduct(thisProduct.data);
 
-
     /* Create element using utils.createDOMFromHTML */
     thisProduct.element = utils.createDOMFromHTML(generatedHTML);
     //console.log(thisProduct.element);
