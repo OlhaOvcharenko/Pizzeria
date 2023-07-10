@@ -4,7 +4,6 @@ import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
 
-
 const app = {
 
   initPages: function() {
@@ -115,7 +114,6 @@ const app = {
     thisApp.bookingContainer = document.querySelector(select.containerOf.booking);
     thisApp.booking = new Booking(thisApp.bookingContainer);
     console.log('new Booking,',  thisApp.booking);
-    thisApp.booking.render();
   },
   
   init: function() {
