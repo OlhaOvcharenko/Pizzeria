@@ -36,3 +36,5 @@ class HourPicker extends BaseWidget{
     thisWidget.dom.output.innerHTML = thisWidget.value;
   }
 }
+
+export default HourPicker;
