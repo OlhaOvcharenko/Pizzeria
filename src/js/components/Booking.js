@@ -47,18 +47,18 @@ class Booking {
       fetch(urls.eventsRepeat),
     ])
       .then(function (allResponses) {
-        const bookingsResponse = allResponses[0];
+        const bookingResponse = allResponses[0];
         const eventsCurrentResponse = allResponses[1];
         const eventsRepeatResponse = allResponses[2];
         return Promise.all([
-          bookingsResponse.json(),
+          bookingResponse.json(),
           eventsCurrentResponse.json(),
           eventsRepeatResponse.json(),
         ]);
       })
-      .then(function ([bookings, eventsCurrent, eventsRepeat]) {
+      .then(function ([booking, eventsCurrent, eventsRepeat]) {
         
-        console.log(bookings);
+        console.log(booking);
         console.log(eventsCurrent);
         console.log(eventsRepeat);
       });
@@ -83,24 +83,21 @@ class Booking {
   initWidgets(){
     const thisBooking = this;
 
-    thisBooking.dom.peopleAmountWidget = new AmountWidget(thisBooking.dom.peopleAmount);
-    thisBooking.dom.hoursAmountWidget = new AmountWidget(thisBooking.dom.hoursAmount);
-    thisBooking.dom.datePickerWidget = new DatePicker (thisBooking.dom.datePicker);
-    thisBooking.dom.hourPickerWidget = new HourPicker(thisBooking.dom.hourPicker);
+    thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
 
-    thisBooking.dom.peopleAmount.addEventListener('updated', function () {
-      // Handle people amount update
-    });
+    thisBooking.dom.peopleAmount.addEventListener('updated', function () { });
 
-    thisBooking.dom.hoursAmount.addEventListener('updated', function () {
-      // Handle hours amount update
-    });
+    thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
 
-    thisBooking.dom.datePicker.addEventListener('updated', function () {
-    });
+    thisBooking.dom.hoursAmount.addEventListener('updated', function () { });
 
-    thisBooking.dom.hourPicker.addEventListener('updated', function (){
-    });
+    thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
+
+    thisBooking.dom.datePicker.addEventListener('updated', function (){});
+
+    thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
+
+    thisBooking.dom.hourPicker.addEventListener('updated', function () {} );
 
   }
 }
