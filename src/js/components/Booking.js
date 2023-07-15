@@ -1,4 +1,4 @@
-import {select,templates,settings} from '../settings.js';
+import {select, templates, settings } from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget  from './AmountWidget.js';
 import DatePicker from './DatePicker.js';
@@ -23,9 +23,9 @@ class Booking {
         endDateParam,
       ],
       eventsCurrent: [
+        settings.db.repeatParam,
         startDateParam,
         endDateParam,
-        settings.db.repeatParam,
       ],
       eventsRepeat: [
         settings.db.notRepeatParam,
@@ -41,24 +41,25 @@ class Booking {
     };
     //console.log(params, 'params');
     //console.log(urls, 'urls');
+
     Promise.all([
       fetch(urls.booking),
       fetch(urls.eventsCurrent),
       fetch(urls.eventsRepeat),
     ])
       .then(function (allResponses) {
-        const bookingResponse = allResponses[0];
+        const bookingsResponse = allResponses[0];
         const eventsCurrentResponse = allResponses[1];
         const eventsRepeatResponse = allResponses[2];
         return Promise.all([
-          bookingResponse.json(),
+          bookingsResponse.json(),
           eventsCurrentResponse.json(),
           eventsRepeatResponse.json(),
         ]);
       })
-      .then(function ([booking, eventsCurrent, eventsRepeat]) {
+      .then(function ([bookings, eventsCurrent, eventsRepeat]) {
         
-        console.log(booking);
+        console.log(bookings);
         console.log(eventsCurrent);
         console.log(eventsRepeat);
       });

@@ -97,7 +97,7 @@ const app = {
         
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
+        //console.log('parsedResponse', parsedResponse);
         /*save parsedResponce as thisApp.data.proucts*/
         thisApp.data.products = parsedResponse;
         /*execute initMenu method*/
@@ -113,7 +113,7 @@ const app = {
 
     thisApp.bookingContainer = document.querySelector(select.containerOf.booking);
     thisApp.booking = new Booking(thisApp.bookingContainer);
-    console.log('new Booking,',  thisApp.booking);
+    //console.log('new Booking,',  thisApp.booking);
   },
   
   init: function() {
