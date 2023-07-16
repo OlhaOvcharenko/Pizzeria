@@ -7,13 +7,14 @@ import HourPicker from './HourPicker.js';
 
 class Booking {
   constructor(element) {
+    const thisBooking = this;
 
-    this.starters =[];
-    this.selectedTables = null;
+    thisBooking.starters =[];
+    thisBooking.selectedTables = null;
 
-    this.render(element);
-    this.initWidgets();
-    this.getData();
+    thisBooking.render(element);
+    thisBooking.initWidgets();
+    thisBooking.getData();
   }
   
   getData() {
@@ -223,13 +224,13 @@ class Booking {
       if(tagName == 'INPUT' && type == 'checkbox' && name == 'starter'){
         if(clickedElement.checked) {
           thisBooking.starters.push(clickedElement.value);
-          console.log(clickedElement.value);
+          //console.log(clickedElement.value);
         } else {
           const starterNumber = thisBooking.starters.indexOf(clickedElement.value);
           thisBooking.starters.splice(starterNumber, 1);
         }
       }
-      console.log(thisBooking.starters);
+      //console.log(thisBooking.starters);
     });
 
     thisBooking.dom.form.addEventListener('click', function(){
@@ -286,16 +287,17 @@ class Booking {
     const bookingLoad = {
       date:  thisBooking.date,
       hour:  thisBooking.hourPicker.value,
-      table: parseInt(thisBooking.selectedTable),
+      table: parseInt(thisBooking.selectedTables),
       duration:  parseInt(thisBooking.dom.hours.value),
       ppl: parseInt(thisBooking.dom.ppl.value),
       phone: thisBooking.dom.phone.value,
       address: thisBooking.dom.adress,
       starters: thisBooking.starters,
     };
-  
-    console.log('bookingLoad', bookingLoad);
-  
+
+    console.log(bookingLoad);
+    thisBooking.makeBooked(bookingLoad.date, bookingLoad.hour, bookingLoad.duration, bookingLoad.table);
+
     const options = {
       method: 'POST',
       headers: {
@@ -311,7 +313,8 @@ class Booking {
       .then(function (parsedResponse) {
         console.log('parsedResponse', parsedResponse);
       });
-    }
+
   }
+}
 
 export default  Booking;
