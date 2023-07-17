@@ -266,11 +266,11 @@
   "bookings": [
     {
       "date": "2023-07-18",
-      "hour": "15:00",
-      "table": 2,
+      "hour": "13:00",
+      "table": 1,
       "duration": 1,
-      "ppl": 1,
-      "phone": "",
+      "ppl": 2,
+      "phone": "99999",
       "starters": [
         "water"
       ],
@@ -278,49 +278,13 @@
     },
     {
       "date": "2023-07-18",
-      "hour": "12:30",
-      "table": 1,
+      "hour": "14:00",
+      "table": 2,
       "duration": 2,
       "ppl": 2,
       "phone": "",
-      "starters": [
-        "water"
-      ],
-      "id": 2
-    },
-    {
-      "date": "2023-07-18",
-      "hour": "12:30",
-      "table": 1,
-      "duration": 1,
-      "ppl": 1,
-      "phone": "",
-      "starters": [
-        "water"
-      ],
-      "id": 3
-    },
-    {
-      "date": "2023-07-17",
-      "hour": "12:00",
-      "table": null,
-      "duration": 1,
-      "ppl": 1,
-      "phone": "",
       "starters": [],
-      "id": 4
-    },
-    {
-      "date": "2023-07-18",
-      "hour": "19:00",
-      "table": 3,
-      "duration": 3,
-      "ppl": 4,
-      "phone": "",
-      "starters": [
-        "water"
-      ],
-      "id": 5
+      "id": 2
     }
   ]
 }
