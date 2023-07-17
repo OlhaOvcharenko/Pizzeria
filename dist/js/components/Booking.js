@@ -176,6 +176,7 @@ class Booking {
 
     thisBooking.dom.phone = element.querySelector(select.booking.phone);
     thisBooking.dom.address = element.querySelector(select.booking.address);
+    thisBooking.dom.orderButton = element.querySelector(select.booking.orderButton);
  
   }
 
@@ -233,8 +234,13 @@ class Booking {
       //console.log(thisBooking.starters);
     });
 
-    thisBooking.dom.form.addEventListener('click', function(){
+    thisBooking.dom.form.addEventListener('submit', function(){
       thisBooking.sendBooking();
+
+      for(let table of thisBooking.dom.tables){
+        table.classList.remove(classNames.booking.tableSelected);
+      }
+      thisBooking.dom.form.reset();
     });
   }
   initTables(event){
@@ -312,6 +318,7 @@ class Booking {
       })
       .then(function (parsedResponse) {
         console.log('parsedResponse', parsedResponse);
+        thisBooking.getData();
       });
 
   }
