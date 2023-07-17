@@ -234,7 +234,8 @@ class Booking {
       //console.log(thisBooking.starters);
     });
 
-    thisBooking.dom.form.addEventListener('submit', function(){
+    thisBooking.dom.form.addEventListener('submit', function(event){
+      event.preventDefault();
       thisBooking.sendBooking();
 
       for(let table of thisBooking.dom.tables){
