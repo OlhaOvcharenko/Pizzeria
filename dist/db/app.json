@@ -266,8 +266,8 @@
   "bookings": [
     {
       "date": "2023-07-18",
-      "hour": "13:30",
-      "table": 2,
+      "hour": "12:00",
+      "table": 1,
       "duration": 1,
       "ppl": 2,
       "phone": "",
@@ -275,6 +275,69 @@
         "water"
       ],
       "id": 1
+    },
+    {
+      "date": "2023-07-18",
+      "hour": "13:30",
+      "table": 1,
+      "duration": 1,
+      "ppl": 4,
+      "phone": "",
+      "starters": [
+        "water"
+      ],
+      "id": 2
+    },
+    {
+      "date": "2023-07-18",
+      "hour": "13:00",
+      "table": 1,
+      "duration": 1,
+      "ppl": 3,
+      "phone": "",
+      "starters": [
+        "water",
+        "water"
+      ],
+      "id": 3
+    },
+    {
+      "date": "2023-07-19",
+      "hour": "14:00",
+      "table": 3,
+      "duration": 2,
+      "ppl": 3,
+      "phone": "",
+      "starters": [
+        "water",
+        "water"
+      ],
+      "id": 4
+    },
+    {
+      "date": "2023-07-19",
+      "hour": "13:30",
+      "table": 3,
+      "duration": 3,
+      "ppl": 5,
+      "phone": "",
+      "starters": [
+        "water"
+      ],
+      "id": 5
+    },
+    {
+      "date": "2023-07-19",
+      "hour": "13:00",
+      "table": 3,
+      "duration": 3,
+      "ppl": 4,
+      "phone": "",
+      "starters": [
+        "water",
+        "water"
+      ],
+      "id": 6
     }
   ]
 }
