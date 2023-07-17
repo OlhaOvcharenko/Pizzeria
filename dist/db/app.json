@@ -265,26 +265,14 @@
   ],
   "bookings": [
     {
-      "date": "2023-07-18",
-      "hour": "13:00",
-      "table": 1,
+      "date": "2023-07-17",
+      "hour": "12:00",
+      "table": null,
       "duration": 1,
-      "ppl": 2,
-      "phone": "99999",
-      "starters": [
-        "water"
-      ],
-      "id": 1
-    },
-    {
-      "date": "2023-07-18",
-      "hour": "14:00",
-      "table": 2,
-      "duration": 2,
-      "ppl": 2,
+      "ppl": 1,
       "phone": "",
       "starters": [],
-      "id": 2
+      "id": 1
     }
   ]
 }
