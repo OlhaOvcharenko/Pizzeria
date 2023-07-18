@@ -19,6 +19,7 @@ export const select = {
     formInputs: 'input, select',
     carousel: '.main-carousel',
   },
+
   menuProduct: {
     clickable: '.product__header',
     form: '.product__order',
@@ -81,6 +82,7 @@ export const select = {
   },
   nav: {
     links: '.main-nav a',
+    homeLinks: '.home-row a',
   },
   
 };

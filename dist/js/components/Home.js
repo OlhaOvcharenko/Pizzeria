@@ -1,10 +1,10 @@
-import {templates, select} from '../settings.js';
+import {templates, select, classNames} from '../settings.js';
 
 class Home {
   constructor(element){
     const thisHome = this;
     thisHome.render(element);
-    this.initSlider();
+    thisHome.initSlider();
 
   }
 
@@ -17,22 +17,22 @@ class Home {
     thisHome.dom.wrapper = element;
 
     element.innerHTML = generatedHTML;
-    console.log('home', generatedHTML);
-
+    thisHome.pages = document.querySelector(select.containerOf.pages).children;
+    thisHome.homeLinks = document.querySelectorAll(select.nav.homeLinks);
+    hisApp.navLinks = document.querySelectorAll(select.nav.links);
+  
   }
 
-  initSlider(){
 
+  initSlider(){
    new Flickity(select.all.carousel, {
-    prevNextButtons: false,
-    autoPlay: true,
-    imagesLoaded: true,
-    percentPosition: false,
+      prevNextButtons: false,
+      autoPlay: true,
+      imagesLoaded: true,
+      percentPosition: false,
 
     });
   }
-
-
 }
 
 export default Home;
