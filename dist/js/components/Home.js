@@ -19,16 +19,16 @@ class Home {
     element.innerHTML = generatedHTML;
     console.log('home', generatedHTML);
 
-    thisHome.dom.slider = thisHome.dom.wrapper.querySelectorAll(select.all.carousel);
   }
 
   initSlider(){
-    const thisHome = this;
 
-    thisHome.dom.slider.flickity({
-      // options
-      cellAlign: 'left',
-      contain: true
+   new Flickity(select.all.carousel, {
+    prevNextButtons: false,
+    autoPlay: true,
+    imagesLoaded: true,
+    percentPosition: false,
+
     });
   }
 
