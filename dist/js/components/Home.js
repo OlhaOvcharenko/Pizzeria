@@ -1,9 +1,10 @@
-import {templates } from '../settings.js';
+import {templates, select} from '../settings.js';
 
 class Home {
   constructor(element){
     const thisHome = this;
     thisHome.render(element);
+    this.initSlider();
 
   }
 
@@ -17,6 +18,18 @@ class Home {
 
     element.innerHTML = generatedHTML;
     console.log('home', generatedHTML);
+
+    thisHome.dom.slider = thisHome.dom.wrapper.querySelectorAll(select.all.carousel);
+  }
+
+  initSlider(){
+    const thisHome = this;
+
+    thisHome.dom.slider.flickity({
+      // options
+      cellAlign: 'left',
+      contain: true
+    });
   }
 
 
