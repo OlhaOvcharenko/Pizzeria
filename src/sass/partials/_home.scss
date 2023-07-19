@@ -69,12 +69,13 @@
 }
 
 .carousel-cell {
-  height: $base-size * 16; /* height of carousel */
+  max-width: 100%;
 }
 
 .slider-box { 
   display: flex;
   gap: 15px;
+  padding-bottom: 25px;
   img {
     width: 191px;
     height: 191px;
@@ -178,7 +179,7 @@
   }
 
   .carousel-info {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .photo-box {
@@ -193,6 +194,19 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+  
+  .carousel-cell {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 250px;
+  }
+
+  .slider-box { 
+    display: flex;
+    flex-direction: column;
   }
 }
 
