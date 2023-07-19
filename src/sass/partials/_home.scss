@@ -69,8 +69,12 @@
   
 }
 
+.carousel-cell {
+  width: 100%; /* full width */
+  height: $base-size * 16; /* height of carousel */
+}
+
 .slider-box { 
-  padding: 0;
   display: flex;
   justify-content: center;
   gap: 15px;
