@@ -81,8 +81,7 @@ export const select = {
     address: '.order-confirmation [type="text"]',
   },
   nav: {
-    links: '.main-nav a',
-    homeLinks: '.home-row a',
+    links: '.main-nav a, .box a',
   },
   
 };
@@ -108,7 +107,7 @@ export const classNames = {
   },
   pages: {
     active: 'active',
-  }
+  },
 };
   
 export const settings = {

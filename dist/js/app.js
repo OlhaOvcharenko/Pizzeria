@@ -7,6 +7,15 @@ import Home from './components/Home.js';
 
 const app = {
 
+  
+  initHome: function() {
+
+    const thisApp = this;
+
+    thisApp.homeContainer = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(thisApp.homeContainer);
+  },
+
   initPages: function() {
     const thisApp = this;
 
@@ -116,14 +125,6 @@ const app = {
     thisApp.booking = new Booking(thisApp.bookingContainer);
     //console.log('new Booking,',  thisApp.booking);
   },
-
-  initHome: function() {
-
-    const thisApp = this;
-
-    thisApp.homeContainer = document.querySelector(select.containerOf.home);
-    thisApp.home = new Home(thisApp.homeContainer);
-  },
   
   init: function() {
     const thisApp = this;
@@ -136,9 +137,9 @@ const app = {
     thisApp.initData();
     thisApp.initMenu();
     thisApp.initCart();
-    thisApp.initPages();
-    thisApp.initBooking();
     thisApp.initHome();
+    thisApp.initBooking();
+    thisApp.initPages();
   },
 
 };
