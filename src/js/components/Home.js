@@ -3,6 +3,7 @@ import {templates, select} from '../settings.js';
 class Home {
   constructor(element){
     const thisHome = this;
+  
     thisHome.render(element);
     thisHome.initSlider();
 
@@ -20,6 +21,8 @@ class Home {
   }
 
   initSlider(){
+
+    // eslint-disable-next-line no-undef
     new Flickity(select.all.carousel, {
       prevNextButtons: false,
       autoPlay: true,

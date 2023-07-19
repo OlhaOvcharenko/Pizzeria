@@ -66,13 +66,12 @@
 
 .main-carousel {
   padding-top: 115px;
-  width: 100%;
+  
 }
 
-.carousel-cell {
+.slider-box { 
+  padding: 0;
   display: flex;
-  position: relative;
-  flex-direction: row;
   justify-content: center;
   gap: 15px;
   
@@ -148,7 +147,7 @@
 
 /* Media */
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 600px) {
 
   .home_row {
     display: flex;
@@ -157,14 +156,14 @@
   }
 
   
-.gallery {
-  padding-top: 115px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-}
+  .gallery {
+    padding-top: 115px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
 
 }
 
