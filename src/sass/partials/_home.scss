@@ -65,8 +65,7 @@
 }
 
 .main-carousel {
-  padding-top: 115px;
-  
+  padding-top: 115px; 
 }
 
 .carousel-cell {
@@ -149,27 +148,6 @@
 }
 
 
-/* Media */
-
-@media (max-width: 600px) {
-
-  .home_row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  
-  .gallery {
-    padding-top: 115px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-}
 
 
 
