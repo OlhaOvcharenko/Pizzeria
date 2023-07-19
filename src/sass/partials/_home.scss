@@ -69,15 +69,12 @@
 }
 
 .carousel-cell {
-  width: 100%; /* full width */
   height: $base-size * 16; /* height of carousel */
 }
 
 .slider-box { 
   display: flex;
-  justify-content: center;
   gap: 15px;
-  
   img {
     width: 191px;
     height: 191px;
@@ -147,7 +144,57 @@
   }
 }
 
+@media (max-width: 768px) {
+  .home_row {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    position: relative;
+    gap: 10px;
 
+  }
+
+  .box a {
+    width: 700px;
+    height: 200px;
+  }
+  
+  .box-info {
+    width: 700px;
+    height: 200px;
+  }
+
+  .gallery {
+    padding-top: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .slider-box img{
+    width: 150px;
+    height: 150px;
+  }
+
+  .carousel-info {
+    font-size: 12px;
+  }
+
+  .photo-box {
+    position: relative;
+    width: 191px;
+    height: 191px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home_row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 
 
 
