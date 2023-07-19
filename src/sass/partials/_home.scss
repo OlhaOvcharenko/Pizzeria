@@ -146,4 +146,27 @@
 }
 
 
+/* Media */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .home_row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  
+.gallery {
+  padding-top: 115px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+}
+
+
 
