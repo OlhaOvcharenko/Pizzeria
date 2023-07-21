@@ -27,8 +27,9 @@ class Home {
       prevNextButtons: false,
       autoPlay: true,
       imagesLoaded: true,
+      cellAlign: 'left',
+      contain: true,
       percentPosition: false,
-
     });
   }
 }
