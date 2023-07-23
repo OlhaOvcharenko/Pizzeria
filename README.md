@@ -1,2 +1,2 @@
 
-http://project-pizzeria.olhaovcharenko.repl.co
+https://project-pizzeria.olhaovcharenko.repl.co
