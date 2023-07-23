@@ -135,10 +135,10 @@ const app = {
     //console.log('templates:', templates);
     
     thisApp.initData();
-    thisApp.initMenu();
+
     thisApp.initCart();
-    thisApp.initHome();
     thisApp.initBooking();
+    thisApp.initHome();
     thisApp.initPages();
   },
 
